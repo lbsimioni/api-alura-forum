@@ -20,8 +20,7 @@ public class AtualizacaoTopicoForm {
     @Length(min = 5)
     private String mensagem;
 
-    public Topico atualizar(Long id, TopicoRepository repository) {
-        Topico topico = repository.getOne(id);
+    public Topico atualizar(Topico topico) {
         topico.setTitulo(this.getTitulo());
         topico.setMensagem(this.getMensagem());
 
