@@ -19,6 +19,16 @@ public class Topico {
 	private String mensagem;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 
+	public Topico() {
+
+	}
+
+	public Topico(String titulo, String mensagem, Curso curso) {
+		this.setTitulo(titulo);
+		this.setMensagem(mensagem);
+		this.setCurso(curso);
+	}
+
 	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
 
