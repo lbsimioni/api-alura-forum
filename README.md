@@ -6,4 +6,8 @@ Course link: `https://cursos.alura.com.br/course/spring-boot-api-rest`.
 
 # DEPENDENCIES #
 
-Lombok: `https://projectlombok.org/`.
+Lombok: `https://projectlombok.org/`
+
+# DOCUMENTATION #
+
+link: `http://localhost/swagger-ui.html`
