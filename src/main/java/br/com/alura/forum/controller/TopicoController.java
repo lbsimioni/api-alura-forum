@@ -38,7 +38,7 @@ public class TopicoController {
             @RequestParam(name = "qtd", required = true) int qtd,
             @RequestParam(name = "qtd", required = true) String ordenacao) {
 
-        Pageable pageable = PageRequest.of(pagina, qtd, Sort.Direction.ASC, ordenacao); // passar o Pegeable por parametro
+        Pageable pageable = PageRequest.of(pagina, qtd, Sort.Direction.ASC, ordenacao); // passar o Pegeable por parametro @PeagebleDefault
 
         Page<Topico> topicos;
 
