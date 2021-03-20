@@ -7,7 +7,14 @@ import br.com.alura.forum.form.TopicoForm;
 import br.com.alura.forum.model.Topico;
 import br.com.alura.forum.repository.CursoRepository;
 import br.com.alura.forum.repository.TopicoRepository;
+import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -15,7 +22,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,14 +35,22 @@ public class TopicoController {
     private CursoRepository cursoRepository;
 
     @GetMapping
-    public List<TopicoDTO> listar(@RequestParam(name = "nomeCurso", required = false) String nomeCurso) {
-        List<Topico> topicos;
+    @Cacheable(value = "listaDeTopicos")
+    public Page<TopicoDTO> listar(
+            @RequestParam(name = "nomeCurso", required = false) String nomeCurso,
+            @RequestParam(name = "pagina", required = true) int pagina,
+            @RequestParam(name = "qtd", required = true) int qtd,
+            @RequestParam(name = "qtd", required = true) String ordenacao) {
+
+        Pageable pageable = PageRequest.of(pagina, qtd, Sort.Direction.ASC, ordenacao); // passar o Pegeable por parametro @PeagebleDefault
+
+        Page<Topico> topicos;
 
         if(nomeCurso != null && !nomeCurso.equals("")) {
-            topicos = this.repository.findByCurso_NomeContainingIgnoreCase(nomeCurso);
+            topicos = this.repository.findByCurso_NomeContainingIgnoreCase(nomeCurso, pageable);
         }
         else {
-            topicos = this.repository.findAll();
+            topicos = this.repository.findAll(pageable);
         }
 
         return TopicoDTO.converter(topicos);
@@ -53,6 +67,7 @@ public class TopicoController {
 
     @PostMapping
     @Transactional
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity<TopicoDTO> cadastrar(
             @RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) {
         
@@ -65,6 +80,7 @@ public class TopicoController {
 
     @PutMapping("/{id}")
     @Transactional
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity atualizar(
             @PathVariable Long id, @RequestBody @Valid AtualizacaoTopicoForm form) {
         Optional<Topico> topicoOpt = repository.findById(id);
@@ -76,6 +92,7 @@ public class TopicoController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @CacheEvict(value = "listaDeTopicos", allEntries = true)
     public ResponseEntity<?> remover(@PathVariable Long id) {
         Optional<Topico> topicoOpt = repository.findById(id);
         if (topicoOpt.isPresent()) {
