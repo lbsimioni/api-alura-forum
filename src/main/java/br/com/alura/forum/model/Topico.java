@@ -19,6 +19,7 @@ public class Topico {
 	private String mensagem;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
 
+	@Deprecated
 	public Topico() {
 
 	}
