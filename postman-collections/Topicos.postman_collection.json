@@ -1,0 +1,782 @@
+{
+	"info": {
+		"_postman_id": "f0e3fb92-c834-417f-bd30-7337e16c88f4",
+		"name": "Topicos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/topicos",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success [200]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos?pagina=0&qtd=5&ordenacao=id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos"
+							],
+							"query": [
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "qtd",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Mar 2021 18:01:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"titulo\": \"Dúvida\",\n            \"mensagem\": \"Erro ao criar projeto\",\n            \"dataCriacao\": \"2019-05-05T18:00:00\"\n        },\n        {\n            \"id\": 2,\n            \"titulo\": \"Dúvida 2\",\n            \"mensagem\": \"Projeto não compila\",\n            \"dataCriacao\": \"2019-05-05T19:00:00\"\n        },\n        {\n            \"id\": 3,\n            \"titulo\": \"Dúvida 3\",\n            \"mensagem\": \"Tag HTML\",\n            \"dataCriacao\": \"2019-05-05T20:00:00\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"unsorted\": true,\n            \"sorted\": false,\n            \"empty\": true\n        },\n        \"pageNumber\": 0,\n        \"pageSize\": 5,\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 3,\n    \"last\": true,\n    \"number\": 0,\n    \"numberOfElements\": 3,\n    \"first\": true,\n    \"size\": 5,\n    \"sort\": {\n        \"unsorted\": true,\n        \"sorted\": false,\n        \"empty\": true\n    },\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Com Filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/topicos?nomeCurso=Spring",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos"
+					],
+					"query": [
+						{
+							"key": "nomeCurso",
+							"value": "Spring"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success [200]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos?nomeCurso=Spring&pagina=0&qtd=5&ordenacao=id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos"
+							],
+							"query": [
+								{
+									"key": "nomeCurso",
+									"value": "Spring"
+								},
+								{
+									"key": "pagina",
+									"value": "0"
+								},
+								{
+									"key": "qtd",
+									"value": "5"
+								},
+								{
+									"key": "ordenacao",
+									"value": "id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Mar 2021 17:58:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"titulo\": \"Dúvida\",\n            \"mensagem\": \"Erro ao criar projeto\",\n            \"dataCriacao\": \"2019-05-05T18:00:00\"\n        },\n        {\n            \"id\": 2,\n            \"titulo\": \"Dúvida 2\",\n            \"mensagem\": \"Projeto não compila\",\n            \"dataCriacao\": \"2019-05-05T19:00:00\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"unsorted\": true,\n            \"sorted\": false,\n            \"empty\": true\n        },\n        \"pageNumber\": 0,\n        \"pageSize\": 5,\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 2,\n    \"last\": true,\n    \"number\": 0,\n    \"numberOfElements\": 2,\n    \"first\": true,\n    \"size\": 5,\n    \"sort\": {\n        \"unsorted\": true,\n        \"sorted\": false,\n        \"empty\": true\n    },\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Lista Com Paginação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/topicos?page=0&size=5&sort=titulo",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": "titulo"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success [200]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos?page=0&size=5&sort=titulo",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "titulo"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 14 Apr 2021 19:49:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 1,\n            \"titulo\": \"Dúvida\",\n            \"mensagem\": \"Erro ao criar projeto\",\n            \"dataCriacao\": \"2019-05-05T18:00:00\"\n        },\n        {\n            \"id\": 5,\n            \"titulo\": \"Dúvida 0\",\n            \"mensagem\": \"Texto da dúvida do Postam\",\n            \"dataCriacao\": \"2021-04-14T16:49:54.873772\"\n        },\n        {\n            \"id\": 2,\n            \"titulo\": \"Dúvida 2\",\n            \"mensagem\": \"Projeto não compila\",\n            \"dataCriacao\": \"2019-05-05T19:00:00\"\n        },\n        {\n            \"id\": 3,\n            \"titulo\": \"Dúvida 3\",\n            \"mensagem\": \"Tag HTML\",\n            \"dataCriacao\": \"2019-05-05T20:00:00\"\n        },\n        {\n            \"id\": 4,\n            \"titulo\": \"Dúvida Postman\",\n            \"mensagem\": \"Texto da dúvida do Postam\",\n            \"dataCriacao\": \"2021-04-14T16:49:18.040997\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"sorted\": true,\n            \"unsorted\": false,\n            \"empty\": false\n        },\n        \"pageNumber\": 0,\n        \"pageSize\": 5,\n        \"offset\": 0,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"totalPages\": 1,\n    \"totalElements\": 5,\n    \"last\": true,\n    \"first\": true,\n    \"sort\": {\n        \"sorted\": true,\n        \"unsorted\": false,\n        \"empty\": false\n    },\n    \"numberOfElements\": 5,\n    \"number\": 0,\n    \"size\": 5,\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Obter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/topicos/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obter - Success [200]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:05:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Dúvida\",\n    \"mensagem\": \"Erro ao criar projeto\",\n    \"dataCriacao\": \"2019-05-05T18:00:00\",\n    \"nomeAutor\": \"Aluno\",\n    \"status\": \"NAO_RESPONDIDO\",\n    \"respostas\": []\n}"
+				},
+				{
+					"name": "Obter - Error [404]",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos/999",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:47:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Inserir",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgZG8gRsOzcnVtIGRhIEFsdXJhIiwic3ViIjoiMSIsImlhdCI6MTYxNjA5NTg1MSwiZXhwIjoxNjE2MTgyMjUxfQ.BKdtHl9jn1biLcZosxxsWwtXKwB5Vyz65zbqtb5ADc0",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Dúvida Postman\",\n    \"mensagem\": \"Texto da dúvida do Postam\",\n    \"nomeCurso\": \"Spring Boot\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/topicos",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Inserir - Success [201]",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Dúvida Postman\",\n    \"mensagem\": \"Texto da dúvida do Postam\",\n    \"nomeCurso\": \"Spring Boot\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/topicos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Location",
+							"value": "http://localhost:8080/topicos/4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 19:51:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"titulo\": \"Dúvida Postman\",\n    \"mensagem\": \"Texto da dúvida do Postam\",\n    \"dataCriacao\": \"2021-02-26T16:51:43.149117\"\n}"
+				},
+				{
+					"name": "Inserir - Error [400]",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"\",\n    \"mensagem\": \"Texto da dúvida do Postam\",\n    \"nomeCurso\": \"Spring Boot\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/topicos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 20:37:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"campo\": \"titulo\",\n        \"erro\": \"o comprimento deve ser entre 5 e 2147483647\"\n    },\n    {\n        \"campo\": \"titulo\",\n        \"erro\": \"não deve estar vazio\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Novo Titulo\",\n    \"mensagem\": \"Nova Mensagem\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/topicos/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Atualizar - Success [200]",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Novo Titulo\",\n    \"mensagem\": \"Nova Mensagem\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/topicos/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:18:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Novo Titulo\",\n    \"mensagem\": \"Nova Mensagem\",\n    \"dataCriacao\": \"2019-05-05T18:00:00\"\n}"
+				},
+				{
+					"name": "Atualizar - Error [404]",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Novo Titulo\",\n    \"mensagem\": \"Nova Mensagem\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/topicos/999",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:48:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Excluir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/topicos/3",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"topicos",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Excluir - Success [200]",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:48:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Excluir - Error [404]",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/topicos/999",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"topicos",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 26 Feb 2021 21:48:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -7,14 +7,12 @@ import br.com.alura.forum.form.TopicoForm;
 import br.com.alura.forum.model.Topico;
 import br.com.alura.forum.repository.CursoRepository;
 import br.com.alura.forum.repository.TopicoRepository;
-import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -38,11 +36,9 @@ public class TopicoController {
     @Cacheable(value = "listaDeTopicos")
     public Page<TopicoDTO> listar(
             @RequestParam(name = "nomeCurso", required = false) String nomeCurso,
-            @RequestParam(name = "pagina", required = true) int pagina,
-            @RequestParam(name = "qtd", required = true) int qtd,
-            @RequestParam(name = "qtd", required = true) String ordenacao) {
+            @PageableDefault Pageable pageable) {
 
-        Pageable pageable = PageRequest.of(pagina, qtd, Sort.Direction.ASC, ordenacao); // passar o Pegeable por parametro @PeagebleDefault
+        // Pageable pageable = PageRequest.of(pagina, qtd, Sort.Direction.ASC, ordenacao); // passar o Pegeable por parametro @PeagebleDefault
 
         Page<Topico> topicos;
 

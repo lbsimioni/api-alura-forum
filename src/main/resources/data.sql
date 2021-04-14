@@ -4,8 +4,8 @@ INSERT INTO USUARIO(nome, email, senha) VALUES('Moderador', 'moderador@email.com
 INSERT INTO PERFIL(id, nome) VALUES(1, 'ROLE_ALUNO');
 INSERT INTO PERFIL(id, nome) VALUES(2, 'ROLE_MODERADOR');
 
-INSERT INTO USUARIO_PERFILS(usuario_id, perfis_id) VALUES(1, 1);
-INSERT INTO USUARIO_PERFILS(usuario_id, perfis_id) VALUES(1, 2);
+INSERT INTO USUARIO_PERFILS(usuario_id, perfils_id) VALUES(1, 1);
+INSERT INTO USUARIO_PERFILS(usuario_id, perfils_id) VALUES(1, 2);
 
 INSERT INTO CURSO(nome, categoria) VALUES('Spring Boot', 'Programação');
 INSERT INTO CURSO(nome, categoria) VALUES('HTML 5', 'Front-end');
