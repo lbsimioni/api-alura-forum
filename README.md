@@ -10,6 +10,8 @@ Lombok: `https://projectlombok.org/`.
 
 Springfox: `https://github.com/springfox/springfox`.
 
+JJWT: `https://github.com/jwtk/jjwt`.
+
 # DOCUMENTATION #
 
 link: `http://localhost/swagger-ui/`.
